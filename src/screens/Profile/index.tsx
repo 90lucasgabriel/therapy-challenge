@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container, Title } from './styles';
 
-const LoginScreen = () => {
+const ProfileScreen = () => {
   return (
     <Container>
-      <Title>Login</Title>
+      <Title>Profile</Title>
     </Container>
   );
 };
 
-export default LoginScreen;
+export default ProfileScreen;

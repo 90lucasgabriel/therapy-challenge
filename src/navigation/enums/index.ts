@@ -4,12 +4,12 @@ enum Route {
   HOME_NAVIGATOR = 'HomeNavigator',
   HOME_TAB = 'HomeTab',
   HOME = 'Home',
+  BLOG_TAB = 'BlogTab',
+  BLOG = 'Blog',
   ABOUT = 'About',
   PROFILE_TAB = 'ProfileTab',
   PROFILE = 'Profile',
   LOGIN = 'Login',
-  SEARCH_TAB = 'SearchTab',
-  SEARCH = 'Search',
 }
 
 export default Route;

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { LogBox } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import Navigation from './src/navigation';
-import { ReactElement } from 'react';
+import { Navigation } from 'navigation';
 
 LogBox.ignoreLogs(['Require cycle:']);
 
