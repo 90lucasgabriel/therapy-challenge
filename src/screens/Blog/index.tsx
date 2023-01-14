@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container, Title } from './styles';
 
-const AboutScreen = () => {
+const BlogScreen = () => {
   return (
     <Container>
-      <Title>About</Title>
+      <Title>Blog</Title>
     </Container>
   );
 };
 
-export default AboutScreen;
+export default BlogScreen;
