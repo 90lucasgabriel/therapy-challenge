@@ -17,7 +17,7 @@ import { ContextData } from 'domains/Auth/types';
 
 const AuthContext = createContext<ContextData>({} as ContextData);
 
-const AuthProvider: React.FC = ({ children }: any) => {
+const AuthProvider = ({ children }: any) => {
   const authFirebase = getAuth();
   const [user, setUser] = useState<User>();
 

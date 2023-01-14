@@ -1,18 +1,28 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { ProfileScreen } from 'screens';
+import { ProfileScreen, SigninScreen, SignupScreen } from 'screens';
 
 import Route from 'navigation/enums';
+import { useAuth } from 'domains/Auth/hooks';
 
 const Stack = createNativeStackNavigator();
 
-const ProfileNavigator = (): ReactElement => {
+const ProfileNavigator = () => {
+  const { user } = useAuth();
+
   return (
     <Stack.Navigator
       initialRouteName={Route.PROFILE}
       screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={Route.PROFILE} component={ProfileScreen} />
+      {user ? (
+        <Stack.Screen name={Route.PROFILE} component={ProfileScreen} />
+      ) : (
+        <>
+          <Stack.Screen name={Route.SIGNIN} component={SigninScreen} />
+          <Stack.Screen name={Route.SIGNUP} component={SignupScreen} />
+        </>
+      )}
     </Stack.Navigator>
   );
 };

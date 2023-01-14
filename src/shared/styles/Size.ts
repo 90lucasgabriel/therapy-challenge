@@ -1,15 +1,15 @@
 const Size = {
-  zero: 0,
-  min: 1,
-  smallest: 4,
-  small: 8,
-  regular: 12,
-  medium: 16,
-  large: 24,
-  xLarge: 32,
-  xxLarge: 48,
-  xxxLarge: 56,
-  largest: 64,
+  zero: '0px',
+  min: '1px',
+  smallest: '4px',
+  small: '8px',
+  regular: '12px',
+  medium: '16px',
+  large: '24px',
+  xLarge: '32px',
+  xxLarge: '48px',
+  xxxLarge: '56px',
+  largest: '64px',
 };
 
 export default Size;

@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container, Title } from './styles';
 
-const ProfileScreen = () => {
+const SignupScreen = () => {
   return (
     <Container>
-      <Title>Hello, user!</Title>
+      <Title>Signup</Title>
     </Container>
   );
 };
 
-export default ProfileScreen;
+export default SignupScreen;
