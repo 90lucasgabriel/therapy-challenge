@@ -2,23 +2,6 @@ import styled from 'styled-components/native';
 import { Form as UnformForm } from '@unform/mobile';
 import { Theme } from 'shared/styles';
 
-export const AdaptiveContainer = styled.View.attrs(
-  ({ paddingBottom }: any) => ({
-    extraHeight: 140,
-    keyboardShouldPersistTaps: 'handled',
-    contentContainerStyle: {
-      flexGrow: 1,
-      justifyContent: 'space-evenly',
-      paddingBottom: paddingBottom ?? 16,
-    },
-  }),
-)``;
-
-export const Container = styled.View`
-  flex: 1;
-  padding: 0 ${Theme.sizes.large};
-`;
-
 export const TitleContainer = styled.View`
   padding: ${Theme.sizes.large} 0;
 `;
@@ -34,8 +17,16 @@ export const Subtitle = styled.Text`
 
 export const Form = styled(UnformForm)``;
 
-export const RegisterContainer = styled.View`
+export const LottieContainer = styled.View`
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+`;
+
+export const SigninContainer = styled.View`
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Label = styled.Text`

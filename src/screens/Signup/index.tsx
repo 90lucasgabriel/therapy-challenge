@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { FormHandles } from '@unform/core';
 import * as yup from 'yup';
+import Lottie from 'lottie-react-native';
 
 import schema from './helpers/validator';
 import { emailValidator, passwordValidator } from 'shared/helpers/validators';
@@ -19,12 +20,12 @@ import {
   SizedBox,
 } from 'components';
 import {
-  Container,
   TitleContainer,
   Title,
   Subtitle,
   Form,
-  RegisterContainer,
+  LottieContainer,
+  SigninContainer,
   Label,
 } from './styles';
 
@@ -80,87 +81,94 @@ const SignupScreen = () => {
 
   return (
     <AdaptiveContainer>
-      <Container>
-        <TitleContainer>
-          <Title>Create an account</Title>
-          <SizedBox height="small" />
-          <Subtitle>Enter the fields below to get started.</Subtitle>
-        </TitleContainer>
+      <LottieContainer>
+        <Lottie
+          source={require('assets/lottie/meditation-lady.json')}
+          autoPlay
+          loop
+          style={{ height: 300 }}
+        />
+      </LottieContainer>
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <Input
-            ref={emailRef}
-            name="email"
-            label="E-mail"
-            placeholder="E-mail"
-            keyboardType="email-address"
-            autoComplete="email"
-            textContentType="emailAddress"
-            autoCapitalize="none"
-            autoCorrect={false}
-            validator={emailValidator}
-            returnKeyType="next"
-            editable={!isLoading}
-            onSubmitEditing={() => passwordRef.current?.focus()}
-            onChangeText={value => {
-              updateIsValid({
-                name: 'email',
-                value,
-                validator: emailValidator,
-                fieldsObjectList: isValid,
-              });
-            }}
-          />
+      <TitleContainer>
+        <Title>Create an account</Title>
+        <SizedBox height="small" />
+        <Subtitle>Enter the fields below to get started.</Subtitle>
+      </TitleContainer>
 
-          <SizedBox height="medium" />
-
-          <Input
-            ref={passwordRef}
-            name="password"
-            label="Senha"
-            placeholder="Senha"
-            autoComplete="password"
-            textContentType="password"
-            autoCapitalize="none"
-            secureTextEntry
-            validator={passwordValidator}
-            editable={!isLoading}
-            returnKeyType="send"
-            onSubmitEditing={() => formRef.current?.submitForm()}
-            onChangeText={value =>
-              updateIsValid({
-                name: 'password',
-                value,
-                validator: passwordValidator,
-                fieldsObjectList: isValid,
-              })
-            }
-          />
-
-          <SizedBox height="large" />
-
-          <Button
-            title="Create Account"
-            onPress={() => formRef.current?.submitForm()}
-            isLoading={isLoading}
-            disabled={isLoading || Object.values(isValid).some(value => !value)}
-          />
-          {!!errorMessage && (
-            <>
-              <SizedBox height="medium" />
-              {/* <Alert type="error">{errorMessage}</Alert> */}
-              <Subtitle>{errorMessage}</Subtitle>
-            </>
-          )}
-        </Form>
+      <Form ref={formRef} onSubmit={handleSubmit}>
+        <Input
+          ref={emailRef}
+          name="email"
+          label="E-mail"
+          placeholder="E-mail"
+          keyboardType="email-address"
+          autoComplete="email"
+          textContentType="emailAddress"
+          autoCapitalize="none"
+          autoCorrect={false}
+          validator={emailValidator}
+          returnKeyType="next"
+          editable={!isLoading}
+          onSubmitEditing={() => passwordRef.current?.focus()}
+          onChangeText={value => {
+            updateIsValid({
+              name: 'email',
+              value,
+              validator: emailValidator,
+              fieldsObjectList: isValid,
+            });
+          }}
+        />
 
         <SizedBox height="medium" />
 
-        <RegisterContainer>
-          <Label>Already have an account?</Label>
-          <ButtonLabel title=" Login" onPress={() => navigation.pop()} />
-        </RegisterContainer>
-      </Container>
+        <Input
+          ref={passwordRef}
+          name="password"
+          label="Senha"
+          placeholder="Senha"
+          autoComplete="password"
+          textContentType="password"
+          autoCapitalize="none"
+          secureTextEntry
+          validator={passwordValidator}
+          editable={!isLoading}
+          returnKeyType="send"
+          onSubmitEditing={() => formRef.current?.submitForm()}
+          onChangeText={value =>
+            updateIsValid({
+              name: 'password',
+              value,
+              validator: passwordValidator,
+              fieldsObjectList: isValid,
+            })
+          }
+        />
+
+        <SizedBox height="large" />
+
+        <Button
+          title="Create Account"
+          onPress={() => formRef.current?.submitForm()}
+          isLoading={isLoading}
+          disabled={isLoading || Object.values(isValid).some(value => !value)}
+        />
+        {!!errorMessage && (
+          <>
+            <SizedBox height="medium" />
+            {/* <Alert type="error">{errorMessage}</Alert> */}
+            <Subtitle>{errorMessage}</Subtitle>
+          </>
+        )}
+      </Form>
+
+      <SizedBox height="medium" />
+
+      <SigninContainer>
+        <Label>Already have an account?</Label>
+        <ButtonLabel title=" Login" onPress={() => navigation.pop()} />
+      </SigninContainer>
     </AdaptiveContainer>
   );
 };

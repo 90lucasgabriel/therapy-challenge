@@ -16,4 +16,5 @@ export const AdaptiveContainer = styled(KeyboardAwareScrollView).attrs(
   }),
 )<Props>`
   background: ${props => props?.background || Theme.colors.background};
+  padding: 0 ${Theme.sizes.medium};
 `;

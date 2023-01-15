@@ -12,5 +12,8 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Title = styled.Text`
-  color: ${Theme.colors.white};
+  font-size: ${Theme.sizes.medium};
+
+  color: ${props =>
+    props.disabled ? Theme.colors.disabledText : Theme.colors.white};
 `;
