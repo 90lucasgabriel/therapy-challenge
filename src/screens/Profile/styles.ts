@@ -23,7 +23,7 @@ export const Subtitle = styled.Text`
 export const LottieContainer = styled.View`
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 140px;
 `;
 
 export const Label = styled.Text`

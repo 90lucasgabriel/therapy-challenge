@@ -10,11 +10,13 @@ import schema from './helpers/validator';
 import { emailValidator, passwordValidator } from 'shared/helpers/validators';
 import { getValidationErrors, isValidForm } from 'shared/helpers';
 import { isValidFormProps } from 'shared/helpers/isValidForm';
+import { EmailPassword } from 'domains/Auth/types';
 
 import Route from 'navigation/enums';
 import { useAuth } from 'domains/Auth/hooks';
 import {
   AdaptiveContainer,
+  Alert,
   Button,
   ButtonLabel,
   Input,
@@ -63,7 +65,7 @@ const SigninScreen = () => {
         await signInWithEmailAndPassword({
           email: data.email,
           password: data.password,
-        });
+        } as EmailPassword);
       } catch (error) {
         if (error instanceof yup.ValidationError) {
           const errors = getValidationErrors(error);
@@ -88,7 +90,7 @@ const SigninScreen = () => {
           source={require('assets/lottie/psychotherapy.json')}
           autoPlay
           loop
-          style={{ height: 250 }}
+          style={{ height: 210 }}
         />
       </LottieContainer>
 
@@ -104,8 +106,8 @@ const SigninScreen = () => {
         <Input
           ref={emailRef}
           name="email"
-          label="E-mail"
-          placeholder="E-mail"
+          label="Email"
+          placeholder="Email"
           keyboardType="email-address"
           autoComplete="email"
           textContentType="emailAddress"
@@ -130,8 +132,8 @@ const SigninScreen = () => {
         <Input
           ref={passwordRef}
           name="password"
-          label="Senha"
-          placeholder="Senha"
+          label="Password"
+          placeholder="Password"
           autoComplete="password"
           textContentType="password"
           autoCapitalize="none"
@@ -161,7 +163,7 @@ const SigninScreen = () => {
         {!!errorMessage && (
           <>
             <SizedBox height="medium" />
-            {/* <Alert type="error">{errorMessage}</Alert> */}
+            <Alert type="error">{errorMessage}</Alert>
           </>
         )}
       </Form>

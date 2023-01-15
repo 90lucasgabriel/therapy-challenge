@@ -11,9 +11,17 @@ const Color = {
   successLight: 'rgba(18, 164, 84, 0.5)',
   successBackground: '#EDFCF2',
 
-  error: '#F00',
+  error: 'rgba(232, 63, 91, 0.8)',
   errorLight: 'rgba(232, 63, 91, 0.5)',
   errorBackground: '#FDF7F7',
+
+  warning: '#FCFC30',
+  warningLight: '#FFFFD8',
+  warningBackground: '#FFFFD8',
+
+  caution: '#FF9040',
+  cautionLight: '#FFF2E9',
+  cautionBackground: '#FFF2E9',
 
   text: '#282313',
   textLight: '#81807D',

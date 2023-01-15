@@ -8,7 +8,6 @@ import React, {
   useMemo,
   Ref,
 } from 'react';
-import { Pressable, TouchableOpacity } from 'react-native';
 import { useField } from '@unform/core';
 import { useSpring } from '@react-spring/native';
 import { TextInputMaskTypeProp } from 'react-native-masked-text';

@@ -16,6 +16,7 @@ import {
 
 import { authFirebase } from '../../../../firebaseConfig';
 import { ContextData, EmailPassword } from 'domains/Auth/types';
+import APIErrors from 'domains/Auth/enums/errors';
 
 const AuthContext = createContext<ContextData>({} as ContextData);
 
@@ -25,6 +26,8 @@ const AuthProvider = ({ children }: any) => {
 
   const handleSignInWithEmailAndPassword = useCallback(
     async (data: EmailPassword): Promise<UserCredential | any> => {
+      const errorMessage = '';
+
       try {
         setIsLoading(true);
         await signInWithEmailAndPassword(
@@ -33,8 +36,8 @@ const AuthProvider = ({ children }: any) => {
           data?.password,
         );
       } catch (error) {
-        console.error(error);
-        return error;
+        const defaultError = 'Sign In error.';
+        throw new Error(APIErrors[error?.message] || defaultError);
       } finally {
         setIsLoading(false);
       }
@@ -52,8 +55,8 @@ const AuthProvider = ({ children }: any) => {
           data?.password,
         );
       } catch (error) {
-        console.error(error);
-        return error;
+        const defaultError = 'Sign Up error.';
+        throw new Error(APIErrors[error?.message] || defaultError);
       } finally {
         setIsLoading(false);
       }
@@ -66,8 +69,8 @@ const AuthProvider = ({ children }: any) => {
       setIsLoading(true);
       await signOut(authFirebase);
     } catch (error) {
-      console.error(error);
-      return error;
+      const defaultError = 'Sign Out error.';
+      throw new Error(APIErrors[error?.message] || defaultError);
     } finally {
       setIsLoading(false);
     }

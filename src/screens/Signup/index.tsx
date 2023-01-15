@@ -14,6 +14,7 @@ import { isValidFormProps } from 'shared/helpers/isValidForm';
 import { useAuth } from 'domains/Auth/hooks';
 import {
   AdaptiveContainer,
+  Alert,
   Button,
   ButtonLabel,
   Input,
@@ -86,7 +87,7 @@ const SignupScreen = () => {
           source={require('assets/lottie/meditation-lady.json')}
           autoPlay
           loop
-          style={{ height: 300 }}
+          style={{ height: 270 }}
         />
       </LottieContainer>
 
@@ -100,8 +101,8 @@ const SignupScreen = () => {
         <Input
           ref={emailRef}
           name="email"
-          label="E-mail"
-          placeholder="E-mail"
+          label="Email"
+          placeholder="Email"
           keyboardType="email-address"
           autoComplete="email"
           textContentType="emailAddress"
@@ -157,8 +158,7 @@ const SignupScreen = () => {
         {!!errorMessage && (
           <>
             <SizedBox height="medium" />
-            {/* <Alert type="error">{errorMessage}</Alert> */}
-            <Subtitle>{errorMessage}</Subtitle>
+            <Alert type="error">{errorMessage}</Alert>
           </>
         )}
       </Form>

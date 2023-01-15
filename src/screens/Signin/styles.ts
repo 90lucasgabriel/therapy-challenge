@@ -20,7 +20,7 @@ export const Form = styled(UnformForm)``;
 export const LottieContainer = styled.View`
   align-items: center;
   justify-content: center;
-  height: 190px;
+  height: 140px;
 `;
 
 export const RegisterContainer = styled.View`

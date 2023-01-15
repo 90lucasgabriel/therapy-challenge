@@ -24,7 +24,7 @@ const ProfileScreen = () => {
             source={require('assets/lottie/profile.json')}
             autoPlay
             loop
-            style={{ height: 360 }}
+            style={{ height: 280 }}
           />
         </LottieContainer>
 
