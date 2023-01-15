@@ -6,43 +6,80 @@ import {
   useState,
 } from 'react';
 import {
-  getAuth,
   onAuthStateChanged,
   User,
-  signInWithEmailAndPassword as signInWithEmailAndPasswordFirebase,
-  createUserWithEmailAndPassword as createUserWithEmailAndPasswordFirebase,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  UserCredential,
 } from 'firebase/auth';
 
-import { ContextData } from 'domains/Auth/types';
+import { authFirebase } from '../../../../firebaseConfig';
+import { ContextData, EmailPassword } from 'domains/Auth/types';
 
 const AuthContext = createContext<ContextData>({} as ContextData);
 
 const AuthProvider = ({ children }: any) => {
-  const authFirebase = getAuth();
   const [user, setUser] = useState<User>();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const signInWithEmailAndPassword = useCallback(async () => {
-    await signInWithEmailAndPasswordFirebase(authFirebase, 'user', 'password');
-  }, [authFirebase]);
+  const handleSignInWithEmailAndPassword = useCallback(
+    async (data: EmailPassword): Promise<UserCredential | any> => {
+      try {
+        setIsLoading(true);
+        await signInWithEmailAndPassword(
+          authFirebase,
+          data?.email,
+          data?.password,
+        );
+      } catch (error) {
+        console.error(error);
+        return error;
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [],
+  );
 
-  const createUserWithEmailAndPassword = useCallback(async () => {
-    await createUserWithEmailAndPasswordFirebase(
-      authFirebase,
-      'user',
-      'password',
-    );
-  }, [authFirebase]);
+  const handleCreateUserWithEmailAndPassword = useCallback(
+    async (data: EmailPassword): Promise<UserCredential | any> => {
+      try {
+        setIsLoading(true);
+        await createUserWithEmailAndPassword(
+          authFirebase,
+          data?.email,
+          data?.password,
+        );
+      } catch (error) {
+        console.error(error);
+        return error;
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [],
+  );
+
+  const handleSignOut = useCallback(async (): Promise<void | any> => {
+    try {
+      setIsLoading(true);
+      await signOut(authFirebase);
+    } catch (error) {
+      console.error(error);
+      return error;
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     const unsubscribeFromAuthStatuChanged = onAuthStateChanged(
       authFirebase,
       user => {
         if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
           setUser(user);
         } else {
-          // User is signed out
           setUser(undefined);
         }
       },
@@ -55,8 +92,10 @@ const AuthProvider = ({ children }: any) => {
     <AuthContext.Provider
       value={{
         user,
-        signInWithEmailAndPassword,
-        createUserWithEmailAndPassword,
+        isAuthLoading: isLoading,
+        signInWithEmailAndPassword: handleSignInWithEmailAndPassword,
+        createUserWithEmailAndPassword: handleCreateUserWithEmailAndPassword,
+        signOut: handleSignOut,
       }}>
       {children}
     </AuthContext.Provider>

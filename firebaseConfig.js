@@ -1,21 +1,20 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import Constants from 'expo-constants';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import ENV from 'react-native-config';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: Constants.manifest?.extra?.firebaseApiKey,
-  authDomain: Constants.manifest?.extra?.firebaseAuthDomain,
-  projectId: Constants.manifest?.extra?.firebaseProjectId,
-  storageBucket: Constants.manifest?.extra?.firebaseStorageBucket,
-  messagingSenderId: Constants.manifest?.extra?.firebaseMessagingSenderId,
-  appId: Constants.manifest?.extra?.firebaseAppId,
+  apiKey: `${ENV?.REACT_APP_FIREBASE_API_KEY}`,
+  authDomain: `${ENV?.REACT_APP_FIREBASE_AUTH_DOMAIN}`,
+  projectId: `${ENV?.REACT_APP_FIREBASE_PROJECT_ID}`,
+  storageBucket: `${ENV?.REACT_APP_FIREBASE_STORAGE_BUCKET}`,
+  messagingSenderId: `${ENV?.REACT_APP_FIREBASE_MESSAGING_SENDER_ID}`,
+  appId: `${ENV?.REACT_APP_FIREBASE_APP_ID}`,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const authFirebase = getAuth(app);
+const db = getFirestore(app);
 
-export default app;
+export { app, authFirebase, db };
