@@ -1,22 +1,64 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Lottie from 'lottie-react-native';
 
 import { useAuth } from 'domains/Auth/hooks';
 
-import { AdaptiveContainer, Button, SizedBox } from 'components';
+import ListTileItemProps from 'components/ListTile/ListTileItem/types';
+import { Title, Label, SizedBox, ListTile } from 'components';
 import {
+  CustomAdaptiveContainer,
   Container,
   TitleContainer,
-  Title,
-  Subtitle,
   LottieContainer,
 } from './styles';
 
 const ProfileScreen = () => {
-  const { user, isAuthLoading, signOut } = useAuth();
+  const { user, signOut } = useAuth();
+
+  const menuList = useMemo((): ListTileItemProps[] => {
+    return [
+      {
+        icon: 'log-out',
+        label: 'Logout',
+        onPress: signOut,
+      },
+      {
+        icon: 'heart',
+        label: 'Favorites',
+      },
+      {
+        icon: 'user',
+        label: 'My Account',
+      },
+      {
+        icon: 'settings',
+        label: 'Settings',
+      },
+      {
+        icon: 'bell',
+        label: 'Notifications',
+      },
+      {
+        icon: 'help-circle',
+        label: 'Help',
+      },
+      {
+        icon: 'lock',
+        label: 'Privacy',
+      },
+      {
+        icon: 'shield',
+        label: 'Security',
+      },
+      {
+        icon: 'info',
+        label: 'About',
+      },
+    ];
+  }, [signOut]);
 
   return (
-    <AdaptiveContainer>
+    <CustomAdaptiveContainer>
       <Container>
         <SizedBox height="largest" />
         <LottieContainer>
@@ -24,24 +66,19 @@ const ProfileScreen = () => {
             source={require('assets/lottie/profile.json')}
             autoPlay
             loop
-            style={{ height: 280 }}
+            style={{ height: 300 }}
           />
         </LottieContainer>
 
         <TitleContainer>
           <Title>Welcome!</Title>
           <SizedBox height="small" />
-          <Subtitle>{user?.email}</Subtitle>
+          <Label>{user?.email}</Label>
         </TitleContainer>
-      </Container>
 
-      <Button
-        title="Logout"
-        isLoading={isAuthLoading}
-        disabled={isAuthLoading}
-        onPress={signOut}
-      />
-    </AdaptiveContainer>
+        <ListTile data={menuList} />
+      </Container>
+    </CustomAdaptiveContainer>
   );
 };
 

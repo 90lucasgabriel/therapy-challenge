@@ -26,8 +26,6 @@ const AuthProvider = ({ children }: any) => {
 
   const handleSignInWithEmailAndPassword = useCallback(
     async (data: EmailPassword): Promise<UserCredential | any> => {
-      const errorMessage = '';
-
       try {
         setIsLoading(true);
         await signInWithEmailAndPassword(
