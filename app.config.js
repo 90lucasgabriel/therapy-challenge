@@ -21,6 +21,8 @@ export default {
       supportsTablet: true,
     },
     android: {
+      package: 'br.com.lucasgabriel.vittude',
+      versionCode: 1,
       adaptiveIcon: {
         foregroundImage: './src/assets/images/adaptive-icon.png',
         backgroundColor: '#ffffff',
@@ -28,6 +30,11 @@ export default {
     },
     web: {
       favicon: './src/assets/images/favicon.png',
+    },
+    extra: {
+      eas: {
+        projectId: '0819cb15-4799-45b4-9d2f-9cb3d323b211',
+      },
     },
   },
 };
