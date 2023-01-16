@@ -8437,6 +8437,13 @@ react-native-config@^1.4.12:
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.4.12.tgz#405099d2dda9b4f15fcd53b0468749cbc5d1dc77"
   integrity sha512-/KN5Vh3dtef0hTa/fV6cM91lLLwf0E4WRZBPQZCdH4VbYOqi88k0pF7nDAcN2NnDiu/3SabdmCP7vwB+rlJtuQ==
 
+react-native-dotenv@^3.4.7:
+  version "3.4.7"
+  resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-3.4.7.tgz#131374dd5c22b1173f7025b2a3b4e124b0142e03"
+  integrity sha512-GqUDdmrtKw7qYS9jjQLipEPctMd0YuSBNVZBNlaHtaHMJ63iaB4FABO4uX0iSUJpgMwozZki4fRv4dDHmVUoLg==
+  dependencies:
+    dotenv "^16.0.3"
+
 react-native-gradle-plugin@^0.70.3:
   version "0.70.3"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"
