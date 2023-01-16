@@ -148,7 +148,6 @@ const SignupScreen = () => {
         <SizedBox height="large" />
 
         <Button
-          id="create-account"
           title="Create Account"
           onPress={() => formRef.current?.submitForm()}
           isLoading={isLoading}
