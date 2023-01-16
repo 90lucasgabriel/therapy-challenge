@@ -62,13 +62,13 @@ _Video demo._
 - Clone this repo:
 
 ```
-git clone git@github.com:90lucasgabriel/vittude-clone.git
+git clone git@github.com:90lucasgabriel/therapy-challenge.git
 ```
 
 - Access directory:
 
 ```
-cd vittude-clone
+cd therapy-challenge
 ```
 
 - Install dependencies:
