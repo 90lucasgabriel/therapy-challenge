@@ -20,14 +20,14 @@ const ProfileNavigator = () => {
         headerStyle: {
           backgroundColor: Theme.colors.primary,
         },
-        title: 'Vittude',
-        headerTitle: 'Vittude',
+        title: 'Therapy',
+        headerTitle: 'Therapy',
       }}>
       {user ? (
         <Stack.Screen
           name={Route.PROFILE}
           component={ProfileScreen}
-          options={{ headerTitle: 'Vittude' }}
+          options={{ headerTitle: 'Therapy' }}
         />
       ) : (
         <>

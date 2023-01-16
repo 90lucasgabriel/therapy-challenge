@@ -25,8 +25,8 @@ const Navigation = () => {
           headerStyle: {
             backgroundColor: Theme.colors.primary,
           },
-          title: 'Vittude',
-          headerTitle: 'Vittude',
+          title: 'Therapy',
+          headerTitle: 'Therapy',
           headerShown: false,
         }}>
         <Tab.Screen

@@ -17,8 +17,8 @@ const BlogNavigator = (): ReactElement => {
         headerStyle: {
           backgroundColor: Theme.colors.primary,
         },
-        title: 'Vittude',
-        headerTitle: 'Vittude',
+        title: 'Therapy',
+        headerTitle: 'Therapy',
       }}>
       <Stack.Screen name={Route.BLOG} component={BlogScreen} />
     </Stack.Navigator>

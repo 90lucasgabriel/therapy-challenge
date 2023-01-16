@@ -17,17 +17,16 @@ import {
   Alert,
   Button,
   ButtonLabel,
+  Title,
+  Label,
   Input,
   SizedBox,
 } from 'components';
 import {
   TitleContainer,
-  Title,
-  Subtitle,
   Form,
   LottieContainer,
   SigninContainer,
-  Label,
 } from './styles';
 
 const SignupScreen = () => {
@@ -87,14 +86,13 @@ const SignupScreen = () => {
           source={require('assets/lottie/meditation-lady.json')}
           autoPlay
           loop
-          style={{ height: 270 }}
+          style={{ height: 300 }}
         />
       </LottieContainer>
 
       <TitleContainer>
         <Title>Create an account</Title>
-        <SizedBox height="small" />
-        <Subtitle>Enter the fields below to get started.</Subtitle>
+        <Label>Enter the fields below to get started.</Label>
       </TitleContainer>
 
       <Form ref={formRef} onSubmit={handleSubmit}>

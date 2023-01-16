@@ -17,8 +17,8 @@ const HomeNavigator = (): ReactElement => {
         headerStyle: {
           backgroundColor: Theme.colors.primary,
         },
-        title: 'Vittude',
-        headerTitle: 'Vittude',
+        title: 'Therapy',
+        headerTitle: 'Therapy',
       }}>
       <Stack.Screen name={Route.HOME} component={HomeScreen} />
     </Stack.Navigator>
