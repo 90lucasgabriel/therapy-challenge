@@ -19,17 +19,16 @@ import {
   Alert,
   Button,
   ButtonLabel,
+  Title,
+  Label,
   Input,
   SizedBox,
 } from 'components';
 import {
   TitleContainer,
-  Title,
-  Subtitle,
   Form,
   LottieContainer,
   RegisterContainer,
-  Label,
 } from './styles';
 
 const SigninScreen = () => {
@@ -84,22 +83,19 @@ const SigninScreen = () => {
 
   return (
     <AdaptiveContainer>
-      <SizedBox height="xLarge" />
+      <SizedBox height="small" />
       <LottieContainer>
         <Lottie
-          source={require('assets/lottie/psychotherapy.json')}
+          source={require('assets/lottie/signup.json')}
           autoPlay
           loop
-          style={{ height: 210 }}
+          style={{ height: 200 }}
         />
       </LottieContainer>
 
       <TitleContainer>
         <Title>Hello again!</Title>
-        <SizedBox height="small" />
-        <Subtitle>
-          Enter the information you entered while registering.
-        </Subtitle>
+        <Label>Enter the information you entered while registering.</Label>
       </TitleContainer>
 
       <Form ref={formRef} onSubmit={handleSubmit}>
