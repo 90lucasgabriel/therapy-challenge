@@ -1,22 +1,23 @@
+import React, { ReactElement } from 'react';
+import { LogBox } from 'react-native';
+
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+import { Navigation } from 'navigation';
+import AppProvider from 'hooks';
 
-export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+LogBox.ignoreLogs(['Require cycle:']);
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
+const App = (): ReactElement => {
+  return (
+    <AppProvider>
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
+        <Navigation />
         <StatusBar />
       </SafeAreaProvider>
-    );
-  }
-}
+    </AppProvider>
+  );
+};
+
+export default App;
