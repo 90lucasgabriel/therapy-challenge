@@ -151,6 +151,7 @@ const SigninScreen = () => {
         <SizedBox height="large" />
 
         <Button
+          id="login"
           title="Login"
           onPress={() => formRef.current?.submitForm()}
           isLoading={isLoading}

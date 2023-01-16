@@ -1,4 +1,5 @@
 type ButtonProps = {
+  id: string;
   disabled?: boolean;
   isLoading?: boolean;
   color?: string;
