@@ -10,6 +10,8 @@ enum Route {
   PROFILE_TAB = 'ProfileTab',
   PROFILE = 'Profile',
   LOGIN = 'Login',
+  SIGNIN = 'Signin',
+  SIGNUP = 'Signup',
 }
 
 export default Route;

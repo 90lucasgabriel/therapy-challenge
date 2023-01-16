@@ -27,6 +27,7 @@ const Navigation = () => {
           },
           title: 'Vittude',
           headerTitle: 'Vittude',
+          headerShown: false,
         }}>
         <Tab.Screen
           name={Route.HOME_TAB}
